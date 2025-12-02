@@ -283,10 +283,10 @@ function App() {
 
       {/* PROBLEM */}
       <Section id="problem" dark>
-        <p className="text-gray-500 uppercase tracking-widest text-sm mb-8">O Problema</p>
-        <h2 className="text-4xl md:text-6xl font-bold text-center leading-tight">
+        <p className="text-gray-400 uppercase tracking-widest text-sm mb-8">O Problema</p>
+        <h2 className="text-4xl md:text-6xl font-bold text-center leading-tight text-white">
           Voce consegue vender.<br />
-          <span className="text-gray-500">Mas consegue reter?</span>
+          <span className="text-gray-400">Mas consegue reter?</span>
         </h2>
         <LeakyBucket />
       </Section>
@@ -395,16 +395,16 @@ function App() {
 
       {/* DEFINITION */}
       <Section id="definition" dark>
-        <p className="text-gray-500 uppercase tracking-widest text-sm mb-8">Definicao</p>
-        <h2 className="text-3xl md:text-5xl font-bold text-center leading-tight max-w-3xl">
+        <p className="text-gray-400 uppercase tracking-widest text-sm mb-8">Definicao</p>
+        <h2 className="text-3xl md:text-5xl font-bold text-center leading-tight max-w-3xl text-white">
           Customer Success e a pratica<br />
-          <span className="text-gray-500">PROATIVA</span> de garantir que<br />
+          <span className="text-yellow-400 font-black">PROATIVA</span> de garantir que<br />
           clientes alcancem seus objetivos.
         </h2>
-        <p className="text-gray-400 mt-8 text-center max-w-xl text-lg">
-          Voce <strong className="text-white">ANTECIPA</strong> problemas antes do cliente perceber.<br />
-          Voce <strong className="text-white">MONITORA</strong> o uso e age quando algo muda.<br />
-          Voce <strong className="text-white">GUIA</strong> o cliente ate o sucesso dele.
+        <p className="text-gray-300 mt-8 text-center max-w-xl text-lg">
+          Voce <strong className="text-yellow-400">ANTECIPA</strong> problemas antes do cliente perceber.<br />
+          Voce <strong className="text-yellow-400">MONITORA</strong> o uso e age quando algo muda.<br />
+          Voce <strong className="text-yellow-400">GUIA</strong> o cliente ate o sucesso dele.
         </p>
       </Section>
 
@@ -682,7 +682,7 @@ function App() {
 
       {/* STAGES */}
       <Section id="stages" dark>
-        <p className="text-gray-500 uppercase tracking-widest text-sm mb-8">Em cada etapa...</p>
+        <p className="text-gray-400 uppercase tracking-widest text-sm mb-8">Em cada etapa...</p>
         <div className="grid md:grid-cols-5 gap-4 w-full">
           {[
             { stage: 'Aquisicao', owner: 'Marketing + Vendas', action: 'Fechar venda' },
@@ -691,10 +691,10 @@ function App() {
             { stage: 'Expansion', owner: 'CS + Vendas', action: 'Upsell' },
             { stage: 'Renewal', owner: 'CS', action: 'Reter' }
           ].map((item, i) => (
-            <div key={i} className="text-center p-4 border border-white/20 rounded-lg">
+            <div key={i} className="text-center p-4 border border-white/30 rounded-lg bg-white/5">
               <p className="font-bold text-white text-sm">{item.stage}</p>
-              <p className="text-gray-400 text-xs mt-2">{item.owner}</p>
-              <p className="text-gray-500 text-xs mt-1">{item.action}</p>
+              <p className="text-gray-300 text-xs mt-2">{item.owner}</p>
+              <p className="text-gray-400 text-xs mt-1">{item.action}</p>
             </div>
           ))}
         </div>
@@ -976,14 +976,14 @@ function App() {
 
       {/* CLOSING */}
       <Section id="closing" dark>
-        <p className="text-gray-500 uppercase tracking-widest text-sm mb-8">Takeaway</p>
-        <h2 className="text-2xl md:text-4xl font-bold text-center leading-relaxed">
+        <p className="text-gray-400 uppercase tracking-widest text-sm mb-8">Takeaway</p>
+        <h2 className="text-2xl md:text-4xl font-bold text-center leading-relaxed text-white">
           Cliente satisfeito nao cancela.<br />
-          <span className="text-gray-500">Cliente satisfeito expande.</span><br />
+          <span className="text-yellow-400">Cliente satisfeito expande.</span><br />
           Cliente satisfeito vira promotor.
         </h2>
-        <div className="w-16 h-0.5 bg-white mx-auto my-8" />
-        <p className="text-xl text-gray-400">
+        <div className="w-16 h-0.5 bg-yellow-400 mx-auto my-8" />
+        <p className="text-xl text-gray-300">
           CS e a maquina de crescimento sustentavel da sua startup.
         </p>
       </Section>
