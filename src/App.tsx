@@ -15,34 +15,45 @@ const InfinityLogo = ({ className = '', color = '#000' }: { className?: string; 
   </svg>
 )
 
-// Leaky Bucket Animation
+// Leaky Bucket Animation (Dark theme)
 const LeakyBucket = () => (
-  <div className="leaky-bucket-visual">
-    <svg viewBox="0 0 200 160" className="w-48 h-40 mx-auto">
+  <div className="leaky-bucket-visual mt-12">
+    <svg viewBox="0 0 200 160" className="w-56 h-48 mx-auto">
       <defs>
         <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#888" stopOpacity="0.6" />
-          <stop offset="100%" stopColor="#444" stopOpacity="0.8" />
+          <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.7" />
+          <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.9" />
         </linearGradient>
       </defs>
       {/* Bucket */}
-      <path d="M40 40 L30 140 L170 140 L160 40 Z" fill="none" stroke="#000" strokeWidth="3" />
-      {/* Water level - animated */}
-      <rect x="35" y="60" width="130" height="75" fill="url(#waterGradient)" className="animate-pulse" />
-      {/* Input water drops */}
-      <circle cx="60" cy="20" r="4" fill="#000" className="animate-bounce" />
-      <circle cx="100" cy="15" r="4" fill="#000" className="animate-bounce" style={{ animationDelay: '0.2s' }} />
-      <circle cx="140" cy="20" r="4" fill="#000" className="animate-bounce" style={{ animationDelay: '0.4s' }} />
+      <path d="M40 40 L30 140 L170 140 L160 40 Z" fill="none" stroke="#fff" strokeWidth="2" />
+      {/* Water level */}
+      <rect x="35" y="65" width="130" height="70" fill="url(#waterGradient)" rx="2" />
+      {/* Input drops (green = new clients) */}
+      <circle cx="60" cy="25" r="5" fill="#4ADE80" className="animate-bounce" />
+      <circle cx="100" cy="18" r="5" fill="#4ADE80" className="animate-bounce" style={{ animationDelay: '0.15s' }} />
+      <circle cx="140" cy="25" r="5" fill="#4ADE80" className="animate-bounce" style={{ animationDelay: '0.3s' }} />
       {/* Leak holes */}
-      <circle cx="50" cy="120" r="6" fill="#fff" stroke="#000" strokeWidth="2" />
-      <circle cx="80" cy="130" r="5" fill="#fff" stroke="#000" strokeWidth="2" />
-      <circle cx="120" cy="125" r="6" fill="#fff" stroke="#000" strokeWidth="2" />
-      <circle cx="150" cy="120" r="5" fill="#fff" stroke="#000" strokeWidth="2" />
-      {/* Leaking drops */}
-      <circle cx="50" cy="145" r="3" fill="#666" className="animate-ping" />
-      <circle cx="120" cy="148" r="3" fill="#666" className="animate-ping" style={{ animationDelay: '0.3s' }} />
+      <circle cx="50" cy="120" r="5" fill="#000" stroke="#fff" strokeWidth="1.5" />
+      <circle cx="80" cy="128" r="4" fill="#000" stroke="#fff" strokeWidth="1.5" />
+      <circle cx="120" cy="124" r="5" fill="#000" stroke="#fff" strokeWidth="1.5" />
+      <circle cx="150" cy="118" r="4" fill="#000" stroke="#fff" strokeWidth="1.5" />
+      {/* Leaking drops (red = churned clients) */}
+      <circle cx="50" cy="145" r="4" fill="#EF4444" className="animate-ping" style={{ animationDuration: '1.5s' }} />
+      <circle cx="80" cy="148" r="3" fill="#EF4444" className="animate-ping" style={{ animationDelay: '0.2s', animationDuration: '1.5s' }} />
+      <circle cx="120" cy="146" r="4" fill="#EF4444" className="animate-ping" style={{ animationDelay: '0.4s', animationDuration: '1.5s' }} />
+      <circle cx="150" cy="142" r="3" fill="#EF4444" className="animate-ping" style={{ animationDelay: '0.6s', animationDuration: '1.5s' }} />
     </svg>
-    <p className="text-center text-sm text-gray-500 mt-4">Vendendo 10 clientes/mes, perdendo 8</p>
+    <div className="flex justify-center gap-8 mt-6 text-sm">
+      <div className="flex items-center gap-2">
+        <span className="w-3 h-3 rounded-full bg-green-400"></span>
+        <span className="text-gray-400">+10 entrando</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="w-3 h-3 rounded-full bg-red-500"></span>
+        <span className="text-gray-400">-8 saindo</span>
+      </div>
+    </div>
   </div>
 )
 
