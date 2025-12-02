@@ -83,7 +83,7 @@ const Section = ({
     <section
       ref={ref}
       id={id}
-      className={`section min-h-screen flex flex-col justify-center items-center px-6 md:px-16 lg:px-24 py-16 ${dark ? 'bg-black text-white' : ''} ${soft ? 'bg-[#F8F8F8]' : 'bg-white'} ${className}`}
+      className={`section min-h-screen flex flex-col justify-center items-center px-6 md:px-16 lg:px-24 py-16 ${dark ? 'bg-black text-white' : soft ? 'bg-[#F8F8F8] text-black' : 'bg-white text-black'} ${className}`}
     >
       <AnimatePresence>
         {isInView && (
