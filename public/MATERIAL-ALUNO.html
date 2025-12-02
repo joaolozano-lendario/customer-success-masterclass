@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material do Aluno | Customer Success Expert</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Source Serif Pro', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .accordion-content.open { max-height: 2000px; }
+        .checkbox-item input:checked + span { text-decoration: line-through; color: #888; }
+        .progress-ring { transform: rotate(-90deg); }
+        @media print { .no-print { display: none; } }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+
+    <!-- Header -->
+    <header class="bg-black text-white py-8 px-6">
+        <div class="max-w-3xl mx-auto">
+            <p class="text-gray-400 text-sm uppercase tracking-widest mb-2">Aula 45 de 46 | Founders Lendarios</p>
+            <h1 class="text-3xl md:text-4xl font-bold">Customer Success Expert</h1>
+            <p class="text-gray-400 mt-2">Material do Aluno - Prof. Marllon Blando</p>
+        </div>
+    </header>
+
+    <!-- Progress -->
+    <div class="bg-white border-b py-4 px-6 sticky top-0 z-50 no-print">
+        <div class="max-w-3xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <svg class="progress-ring w-12 h-12" viewBox="0 0 36 36">
+                    <path class="text-gray-200" stroke="currentColor" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path id="progress-path" class="text-black" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                </svg>
+                <div>
+                    <p class="font-medium" id="progress-text">0% completo</p>
+                    <p class="text-sm text-gray-500">Objetivos da aula</p>
+                </div>
+            </div>
+            <button onclick="window.print()" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-gray-200 transition">Imprimir</button>
+        </div>
+    </div>
+
+    <main class="max-w-3xl mx-auto px-6 py-8">
+
+        <!-- Objetivos -->
+        <section class="bg-white rounded-xl p-6 mb-6 border border-gray-200">
+            <h2 class="text-xl font-bold mb-4">Objetivos da Aula</h2>
+            <p class="text-gray-600 mb-4">Marque conforme voce atingir cada objetivo:</p>
+            <div class="space-y-3" id="objectives">
+                <label class="checkbox-item flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer">
+                    <input type="checkbox" class="w-5 h-5 objective-check" onchange="updateProgress()">
+                    <span>Definir o que e Customer Success e diferencia-lo de Suporte e Vendas</span>
+                </label>
+                <label class="checkbox-item flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer">
+                    <input type="checkbox" class="w-5 h-5 objective-check" onchange="updateProgress()">
+                    <span>Explicar o impacto estrategico de CS nas metricas de negocio (LTV, Churn, Expansion)</span>
+                </label>
+                <label class="checkbox-item flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer">
+                    <input type="checkbox" class="w-5 h-5 objective-check" onchange="updateProgress()">
+                    <span>Identificar quando sua startup precisa de Customer Success</span>
+                </label>
+                <label class="checkbox-item flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer">
+                    <input type="checkbox" class="w-5 h-5 objective-check" onchange="updateProgress()">
+                    <span>Calcular metricas basicas de CS (Churn Rate, NPS, Health Score)</span>
+                </label>
+                <label class="checkbox-item flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer">
+                    <input type="checkbox" class="w-5 h-5 objective-check" onchange="updateProgress()">
+                    <span>Desenhar o Customer Journey Map da sua startup</span>
+                </label>
+                <label class="checkbox-item flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer">
+                    <input type="checkbox" class="w-5 h-5 objective-check" onchange="updateProgress()">
+                    <span>Implementar 1 acao pratica de CS esta semana</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Accordion Sections -->
+
+        <!-- PARTE 1 -->
+        <section class="bg-white rounded-xl mb-4 border border-gray-200 overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-6 text-left">
+                <div>
+                    <span class="text-xs text-gray-500 uppercase tracking-wider">Parte 1</span>
+                    <h3 class="text-lg font-bold">Conceitos Fundamentais</h3>
+                </div>
+                <svg class="w-5 h-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <div class="px-6 pb-6 space-y-6">
+                    <div>
+                        <h4 class="font-semibold mb-2">O Que e Customer Success?</h4>
+                        <p class="text-gray-600 mb-4">Customer Success e a pratica <strong>PROATIVA</strong> de garantir que os clientes alcancem seus objetivos usando seu produto/servico.</p>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-gray-50 p-3 rounded-lg text-center text-sm">Maior retencao</div>
+                            <div class="bg-gray-50 p-3 rounded-lg text-center text-sm">Maior LTV</div>
+                            <div class="bg-gray-50 p-3 rounded-lg text-center text-sm">Expansao de receita</div>
+                            <div class="bg-gray-50 p-3 rounded-lg text-center text-sm">Clientes promotores</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold mb-2">CS vs. Suporte vs. Vendas</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="border-b-2 border-black">
+                                        <th class="py-2 text-left"></th>
+                                        <th class="py-2 px-2 text-left text-gray-500">Suporte</th>
+                                        <th class="py-2 px-2 text-left text-gray-500">Vendas</th>
+                                        <th class="py-2 px-2 text-left font-bold">Customer Success</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-2 text-gray-500">Abordagem</td>
+                                        <td class="py-2 px-2">Reativo</td>
+                                        <td class="py-2 px-2">Proativo</td>
+                                        <td class="py-2 px-2 font-medium bg-gray-50">PROATIVO</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-2 text-gray-500">Foco</td>
+                                        <td class="py-2 px-2">Resolver bugs</td>
+                                        <td class="py-2 px-2">Fechar deals</td>
+                                        <td class="py-2 px-2 font-medium">Garantir sucesso</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 text-gray-500">Metrica</td>
+                                        <td class="py-2 px-2">Tempo resposta</td>
+                                        <td class="py-2 px-2">Receita nova</td>
+                                        <td class="py-2 px-2 font-medium">Retencao, NPS</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTE 2 - 4 Pilares -->
+        <section class="bg-white rounded-xl mb-4 border border-gray-200 overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-6 text-left">
+                <div>
+                    <span class="text-xs text-gray-500 uppercase tracking-wider">Framework</span>
+                    <h3 class="text-lg font-bold">Os 4 Pilares do Customer Success</h3>
+                </div>
+                <svg class="w-5 h-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <div class="px-6 pb-6 space-y-4">
+                    <div class="border-l-4 border-black pl-4">
+                        <p class="text-2xl font-bold text-gray-200">01</p>
+                        <h4 class="font-bold">ONBOARDING (Ativacao)</h4>
+                        <p class="text-gray-600 text-sm">Fazer cliente ter a primeira vitoria rapido</p>
+                        <p class="text-xs text-gray-500 mt-1">Metrica: Time to Value</p>
+                    </div>
+                    <div class="border-l-4 border-gray-300 pl-4">
+                        <p class="text-2xl font-bold text-gray-200">02</p>
+                        <h4 class="font-bold">ADOPTION (Adocao)</h4>
+                        <p class="text-gray-600 text-sm">Cliente usa produto de forma consistente</p>
+                        <p class="text-xs text-gray-500 mt-1">Metrica: Engagement Score</p>
+                    </div>
+                    <div class="border-l-4 border-gray-300 pl-4">
+                        <p class="text-2xl font-bold text-gray-200">03</p>
+                        <h4 class="font-bold">EXPANSION (Expansao)</h4>
+                        <p class="text-gray-600 text-sm">Aumentar receita de clientes existentes</p>
+                        <p class="text-xs text-gray-500 mt-1">Metrica: Expansion MRR</p>
+                    </div>
+                    <div class="border-l-4 border-gray-300 pl-4">
+                        <p class="text-2xl font-bold text-gray-200">04</p>
+                        <h4 class="font-bold">RENEWAL (Renovacao)</h4>
+                        <p class="text-gray-600 text-sm">Cliente renova ou nao cancela</p>
+                        <p class="text-xs text-gray-500 mt-1">Metrica: Churn Rate</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTE 3 - Metricas -->
+        <section class="bg-white rounded-xl mb-4 border border-gray-200 overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-6 text-left">
+                <div>
+                    <span class="text-xs text-gray-500 uppercase tracking-wider">Parte 2</span>
+                    <h3 class="text-lg font-bold">Metricas de Customer Success</h3>
+                </div>
+                <svg class="w-5 h-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <div class="px-6 pb-6 space-y-6">
+                    <!-- Churn Rate -->
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">1. CHURN RATE</h4>
+                        <p class="text-sm text-gray-600 mb-2">Taxa de cancelamento</p>
+                        <div class="bg-white p-3 rounded border font-mono text-sm">
+                            Churn = (Clientes Perdidos / Clientes Inicio) x 100
+                        </div>
+                        <div class="flex gap-4 mt-3 text-xs">
+                            <span class="text-green-600">&lt;3% = Excelente</span>
+                            <span class="text-yellow-600">3-7% = Normal</span>
+                            <span class="text-red-600">&gt;10% = Alerta</span>
+                        </div>
+                    </div>
+
+                    <!-- NPS -->
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">2. NPS (Net Promoter Score)</h4>
+                        <p class="text-sm text-gray-600 mb-2">"De 0 a 10, quanto voce recomendaria?"</p>
+                        <div class="flex gap-2 text-sm">
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded">9-10 Promotores</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded">7-8 Neutros</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded">0-6 Detratores</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">NPS = % Promotores - % Detratores</p>
+                    </div>
+
+                    <!-- Health Score -->
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">3. HEALTH SCORE</h4>
+                        <p class="text-sm text-gray-600 mb-2">Pontuacao de saude do cliente</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2"><span class="w-4 h-4 bg-green-500 rounded-full"></span>80-100 = Saudavel</div>
+                            <div class="flex items-center gap-2"><span class="w-4 h-4 bg-yellow-500 rounded-full"></span>50-79 = Atencao</div>
+                            <div class="flex items-center gap-2"><span class="w-4 h-4 bg-red-500 rounded-full"></span>0-49 = Risco</div>
+                        </div>
+                    </div>
+
+                    <!-- Expansion MRR -->
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">4. EXPANSION MRR</h4>
+                        <div class="bg-white p-3 rounded border font-mono text-sm">
+                            Expansion = Upsells - Downgrades
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">Meta: Sempre positivo</p>
+                    </div>
+
+                    <!-- Time to Value -->
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">5. TIME TO VALUE</h4>
+                        <p class="text-sm text-gray-600 mb-2">Tempo ate primeira vitoria</p>
+                        <p class="text-2xl font-bold text-center">&lt;7 dias = Ideal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="bg-white rounded-xl mb-4 border border-gray-200 overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-6 text-left">
+                <div>
+                    <span class="text-xs text-gray-500 uppercase tracking-wider">Autodiagnostico</span>
+                    <h3 class="text-lg font-bold">Minha Startup Precisa de CS?</h3>
+                </div>
+                <svg class="w-5 h-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <div class="px-6 pb-6">
+                    <p class="text-gray-600 mb-4">Marque SIM para cada pergunta:</p>
+                    <div class="space-y-2" id="checklist">
+                        <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer">
+                            <input type="checkbox" class="w-5 h-5 checklist-item" onchange="updateChecklist()">
+                            <span class="text-sm">Mais de 20 clientes pagantes?</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer">
+                            <input type="checkbox" class="w-5 h-5 checklist-item" onchange="updateChecklist()">
+                            <span class="text-sm">Churn maior que 5% ao mes?</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer">
+                            <input type="checkbox" class="w-5 h-5 checklist-item" onchange="updateChecklist()">
+                            <span class="text-sm">Reclamacoes sobre falta de atencao?</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer">
+                            <input type="checkbox" class="w-5 h-5 checklist-item" onchange="updateChecklist()">
+                            <span class="text-sm">Nao sabe quais clientes estao em risco?</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer">
+                            <input type="checkbox" class="w-5 h-5 checklist-item" onchange="updateChecklist()">
+                            <span class="text-sm">Onboarding nao estruturado?</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer">
+                            <input type="checkbox" class="w-5 h-5 checklist-item" onchange="updateChecklist()">
+                            <span class="text-sm">Sem metricas de CS?</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer">
+                            <input type="checkbox" class="w-5 h-5 checklist-item" onchange="updateChecklist()">
+                            <span class="text-sm">Perde clientes sem saber por que?</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer">
+                            <input type="checkbox" class="w-5 h-5 checklist-item" onchange="updateChecklist()">
+                            <span class="text-sm">Gastando +50% tempo apagando incendio?</span>
+                        </label>
+                    </div>
+                    <div id="checklist-result" class="mt-4 p-4 bg-gray-100 rounded-lg text-center">
+                        <p class="font-bold">Total: <span id="checklist-count">0</span> SIM</p>
+                        <p class="text-sm text-gray-600" id="checklist-interpretation">Marque as opcoes acima</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5 Passos -->
+        <section class="bg-white rounded-xl mb-4 border border-gray-200 overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-6 text-left">
+                <div>
+                    <span class="text-xs text-gray-500 uppercase tracking-wider">Implementacao</span>
+                    <h3 class="text-lg font-bold">5 Passos para Montar CS do Zero</h3>
+                </div>
+                <svg class="w-5 h-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+            <div class="accordion-content">
+                <div class="px-6 pb-6 space-y-4">
+                    <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                        <span class="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold shrink-0">1</span>
+                        <div>
+                            <h4 class="font-bold">Mapear Customer Journey</h4>
+                            <p class="text-sm text-gray-600">Desenhe as etapas da jornada adaptadas ao SEU produto</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                        <span class="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold shrink-0">2</span>
+                        <div>
+                            <h4 class="font-bold">Definir Metricas Minimas</h4>
+                            <p class="text-sm text-gray-600">Churn Rate + Health Score basico (obrigatorios)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                        <span class="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold shrink-0">3</span>
+                        <div>
+                            <h4 class="font-bold">Criar Onboarding Estruturado</h4>
+                            <p class="text-sm text-gray-600">Sequencia de comunicacao ate primeira vitoria</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                        <span class="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold shrink-0">4</span>
+                        <div>
+                            <h4 class="font-bold">Implementar Check-ins</h4>
+                            <p class="text-sm text-gray-600">High-value: mensal. Mid: trimestral. Low: automacao</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
+                        <span class="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold shrink-0">5</span>
+                        <div>
+                            <h4 class="font-bold">Sistema de Alertas</h4>
+                            <p class="text-sm text-gray-600">Red flags: nao loga, nao usa, muitos tickets</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Homework -->
+        <section class="bg-black text-white rounded-xl p-6 mb-6">
+            <p class="text-gray-400 text-sm uppercase tracking-wider mb-2">Homework</p>
+            <h3 class="text-xl font-bold mb-4">Implemente 1 Metrica Esta Semana</h3>
+            <div class="space-y-3">
+                <div class="bg-white/10 p-4 rounded-lg">
+                    <p class="font-medium">Opcao 1: Calcular Churn Rate</p>
+                    <p class="text-sm text-gray-400">Planilha no Sheets. Clientes perdidos / total.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg border border-white/30">
+                    <p class="font-medium">Opcao 2: Criar Health Score</p>
+                    <p class="text-sm text-gray-400">Verde / Amarelo / Vermelho baseado em uso.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg">
+                    <p class="font-medium">Opcao 3: Fazer NPS Survey</p>
+                    <p class="text-sm text-gray-400">Google Forms. "De 0 a 10..."</p>
+                </div>
+            </div>
+            <p class="text-gray-400 text-sm mt-4 text-center">Compartilhe no grupo!</p>
+        </section>
+
+        <!-- Anotacoes -->
+        <section class="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 class="text-lg font-bold mb-4">Anotacoes Pessoais</h3>
+            <textarea id="notes" class="w-full h-48 p-4 border border-gray-200 rounded-lg resize-none focus:outline-none focus:border-black" placeholder="Use este espaco para anotacoes durante a aula..." onchange="saveNotes()"></textarea>
+            <p class="text-xs text-gray-400 mt-2">Suas anotacoes sao salvas automaticamente no navegador</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-8 px-6 mt-8">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="text-gray-500 text-sm">Founders Lendarios | Aula 45 de 46</p>
+            <p class="text-gray-400 text-xs mt-2">Material criado para uso exclusivo dos alunos</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle accordion
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('svg');
+            content.classList.toggle('open');
+            icon.style.transform = content.classList.contains('open') ? 'rotate(180deg)' : '';
+        }
+
+        // Update progress
+        function updateProgress() {
+            const checks = document.querySelectorAll('.objective-check');
+            const checked = document.querySelectorAll('.objective-check:checked').length;
+            const total = checks.length;
+            const percent = Math.round((checked / total) * 100);
+
+            document.getElementById('progress-text').textContent = percent + '% completo';
+            document.getElementById('progress-path').setAttribute('stroke-dasharray', percent + ', 100');
+
+            // Save to localStorage
+            const state = Array.from(checks).map(c => c.checked);
+            localStorage.setItem('cs-objectives', JSON.stringify(state));
+        }
+
+        // Update checklist
+        function updateChecklist() {
+            const checks = document.querySelectorAll('.checklist-item');
+            const count = document.querySelectorAll('.checklist-item:checked').length;
+
+            document.getElementById('checklist-count').textContent = count;
+
+            let interpretation = '';
+            if (count === 0) interpretation = 'Marque as opcoes acima';
+            else if (count <= 2) interpretation = 'Ta ok, continua founder-led CS';
+            else if (count <= 5) interpretation = 'Hora de estruturar melhor';
+            else interpretation = 'URGENTE - voce ta perdendo dinheiro';
+
+            document.getElementById('checklist-interpretation').textContent = interpretation;
+
+            // Save to localStorage
+            const state = Array.from(checks).map(c => c.checked);
+            localStorage.setItem('cs-checklist', JSON.stringify(state));
+        }
+
+        // Save notes
+        function saveNotes() {
+            localStorage.setItem('cs-notes', document.getElementById('notes').value);
+        }
+
+        // Load saved state
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load objectives
+            const savedObjectives = localStorage.getItem('cs-objectives');
+            if (savedObjectives) {
+                const state = JSON.parse(savedObjectives);
+                document.querySelectorAll('.objective-check').forEach((c, i) => {
+                    c.checked = state[i] || false;
+                });
+                updateProgress();
+            }
+
+            // Load checklist
+            const savedChecklist = localStorage.getItem('cs-checklist');
+            if (savedChecklist) {
+                const state = JSON.parse(savedChecklist);
+                document.querySelectorAll('.checklist-item').forEach((c, i) => {
+                    c.checked = state[i] || false;
+                });
+                updateChecklist();
+            }
+
+            // Load notes
+            const savedNotes = localStorage.getItem('cs-notes');
+            if (savedNotes) {
+                document.getElementById('notes').value = savedNotes;
+            }
+        });
+    </script>
+</body>
+</html>

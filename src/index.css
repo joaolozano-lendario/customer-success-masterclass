@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --white-pure: #FFFFFF;
+  --white-soft: #F8F8F8;
+  --gray-100: #E8E8E8;
+  --gray-200: #D8D8D8;
+  --gray-300: #B8B8B8;
+  --gray-400: #888888;
+  --gray-500: #646464;
+  --gray-600: #484848;
+  --gray-700: #323232;
+  --black-soft: #242424;
+  --black-deep: #161616;
+  --black-pure: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slide {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Typography */
+.display-1 {
+  font-size: 3rem;
+  line-height: 1.16;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.h2 {
+  font-size: 2rem;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.h3 {
+  font-size: 1.5rem;
+  line-height: 1.33;
+  font-weight: 600;
+}
+
+.body-large {
+  font-size: 1.125rem;
+  line-height: 1.55;
+  font-weight: 400;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* Quote style */
+.quote-block {
+  font-family: 'Source Serif Pro', Georgia, serif;
+  font-style: italic;
+}
+
+/* Progress bar */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #000;
+  z-index: 100;
+  transition: width 0.3s ease;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Card styles */
+.card-featured {
+  background: var(--white-soft);
+  border: 1px solid var(--gray-200);
+  border-left: 4px solid var(--black-pure);
+}
+
+/* Navigation dots */
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gray-300);
+  transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+  background: var(--black-pure);
+  transform: scale(1.25);
+}
