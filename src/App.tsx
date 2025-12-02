@@ -44,7 +44,7 @@ const LeakyBucket = () => (
       <circle cx="120" cy="146" r="4" fill="#EF4444" className="animate-ping" style={{ animationDelay: '0.4s', animationDuration: '1.5s' }} />
       <circle cx="150" cy="142" r="3" fill="#EF4444" className="animate-ping" style={{ animationDelay: '0.6s', animationDuration: '1.5s' }} />
     </svg>
-    <p className="text-center text-gray-400 text-sm mt-4">Exemplo do Balde Furado</p>
+    <p className="text-center text-gray-400 text-sm mt-4">Exemplo do Balde Furado: +10 entrando, -8 saindo</p>
   </div>
 )
 
